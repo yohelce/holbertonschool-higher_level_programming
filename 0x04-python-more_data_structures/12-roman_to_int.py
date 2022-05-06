@@ -1,4 +1,4 @@
-#!/usr/python3
+#!/usr/bin/python3
 def roman_to_int(roman_string):
     rs = roman_string
     if rs is None or type(rs) != str:
