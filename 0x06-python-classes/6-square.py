@@ -26,7 +26,7 @@ class Square:
 
     def my_print(self):
         """"Public instance method that prints a square with the character #"""
-        if self.__position[1] > 0:
+        if self.__position and self.__position[1] > 0:
             print("\n" * self.__position[1], end='')
         if self.__size == 0:
             print()
