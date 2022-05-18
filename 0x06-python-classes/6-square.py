@@ -26,13 +26,13 @@ class Square:
 
     def my_print(self):
         """"Public instance method that prints a square with the character #"""
-        for p in range(0, self.__position[1]):
+        if self.__position[1] > 0:
+            print("\n" * self.__position[1], end='')
+        if self.__size == 0:
             print()
         for i in range(self.__size):
             print(" " * self.__position[0], end='')
             print("#" * self.__size)
-        if self.__size == 0:
-            print()
 
     @property
     def size(self):
@@ -51,7 +51,7 @@ class Square:
 
     @property
     def position(self):
-        return self._position
+        return self.__position
 
     @position.setter
     def position(self, value):
