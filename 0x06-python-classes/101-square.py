@@ -36,7 +36,7 @@ class Square:
         """Str method for print from main module."""
         my_str = ""
         if self.__size == 0:
-            return "\n"
+            return ""
         else:
             my_str += "\n" * self.__position[1]
             for row in range(0, self.__size):
