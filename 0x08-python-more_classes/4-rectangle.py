@@ -16,8 +16,8 @@ class Rectangle:
         of a Rectangle instance, filled with the '#' character"""
 
         if self.__width == 0 or self.__height == 0:
-            return ""
-        rectangle = ""
+            return ''
+        rectangle = ''
         for row in range(self.__height):
             for col in range(self.__width):
                 rectangle += '#'
