@@ -28,7 +28,7 @@ class Rectangle:
         """Returns a string representation of a rectangle instance
         that is able to recreate a new instance by using eval()"""
 
-        return f"Rectangle ({self.width}, {self.height})"
+        return f"Rectangle ({self.__width}, {self.__height})"
 
     @property
     def width(self):
@@ -60,10 +60,10 @@ class Rectangle:
 
     def area(self):
         """ Return the Area of a rectangle """
-        return self.width * self.height
+        return self.__width * self.__height
 
     def perimeter(self):
         """ Return the Perimeter of a rectangle """
-        if self.width == 0 or self.height == 0:
+        if self.__width == 0 or self.__height == 0:
             return 0
-        return 2 * (self.width + self.height)
+        return 2 * (self.__width + self.__height)
