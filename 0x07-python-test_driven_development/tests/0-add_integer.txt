@@ -18,6 +18,16 @@ Now test it:
 	>>> add_integer(7.3, 8)
 	15
 
+	>>> add_integer(float('inf'), 6)
+	Traceback (most recent call last):
+                ...
+	OverflowError: cannot convert float infinity to integer
+
+	>>> add_integer(float('nan'))
+	Traceback (most recent call last):
+		...
+	ValueError: cannot convert float NaN to integer
+
 	>>> add_integer(None)
 	Traceback (most recent call last):
 		...
