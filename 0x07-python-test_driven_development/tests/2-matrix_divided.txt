@@ -35,3 +35,8 @@ Now test it:
 
 	>>> matrix_divided([[1, 2, 3], [4, 5, 6]], float('inf'))
 	[[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
+	>>> matrix_divided([[1, 2, 3], [4, 5, 6]], 0)
+	Traceback (most recent call last):
+		...
+	ZeroDivisionError: division by zero
