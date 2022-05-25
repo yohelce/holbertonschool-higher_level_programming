@@ -15,15 +15,25 @@ Now test it:
 	>>> say_my_name(12, 3)
 	Traceback (most recent call last):
 		...
-    	TypeError: first_name must be a string
+	TypeError: first_name must be a string
 
 	>>> say_my_name(None)
-    	Traceback (most recent call last):
+	Traceback (most recent call last):
     		...
 	TypeError: first_name must be a string
 
+	>>> say_my name("Yohel", 90)
+	Traceback (most recent call last):
+        	...
+	TypeError: last_name must be a string
+
 	>>> say_my_name("", "Espinoza")
     	My name is  Espinoza
+
+	>>> say_my_name(None, None)
+	Traceback (most recent call last):
+		...
+	TypeError: first_name must be a string	
 	
 	>>> say_my_name("", "")
 	My name is  
