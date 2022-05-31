@@ -41,6 +41,16 @@ Now test it:
 		...
 	TypeError: NaN must be an integer
 
+	>>> bg.integer_validator("new", float('inf'))
+	Traceback (most recent call last):
+		...
+	TypeError: new must be an integer
+
+	>>> bg.integer_validator(6)
+	Traceback (most recent call last):
+		...
+	TypeError: integer_validator() missing 1 required positional argument: 'value'
+
 	>>> bg.integer_validator()
 	Traceback (most recent call last):
 		...
@@ -50,3 +60,8 @@ Now test it:
 	Traceback (most recent call last):
 		...
 	TypeError: height must be an integer
+
+	>>> bg.integer_validator("area", True)
+	Traceback (most recent call last):
+		...
+	TypeError: area must be an integer
