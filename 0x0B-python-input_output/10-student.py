@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Module 10-student.py"""
 
+
 class Student:
     """Class that defines a student.
     Public attributes:
@@ -21,7 +22,7 @@ class Student:
         """Retrieves a dictionary representation
         of a Student instance.
         Args:
-           - attrs: attributes  
+           - attrs: attributes
         Returns: the dict representation of the instance.
         """
 
