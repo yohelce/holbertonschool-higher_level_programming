@@ -116,7 +116,7 @@ class Rectangle(Base):
         return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - \
 {self.__width}/{self.__height}"
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """Assigns an argument to each attribute"""
 
         if args is not None and len(args) > 0:
@@ -133,3 +133,18 @@ class Rectangle(Base):
                     self.x = args[3]
                 if arg == 4:
                     self.y = args[4]
+
+        else:
+            for key, value in kwargs.items():
+                if key == "id":
+                    if type(value) is not int and value is not None:
+                        raise TypeError("id must be an integer")
+                    self.id = value
+                if key == "width":
+                    self.width = value
+                if key == "height":
+                    self.height = value
+                if key == "x":
+                    self.x = value
+                if key == "y":
+                    self.y = value
