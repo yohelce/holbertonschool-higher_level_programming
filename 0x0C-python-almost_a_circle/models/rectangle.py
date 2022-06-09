@@ -129,7 +129,7 @@ class Rectangle(Base):
                     self.width = args[1]
                 if arg == 2:
                     self.height = args[2]
-                if args == 3:
+                if arg == 3:
                     self.x = args[3]
-                if args == 4:
+                if arg == 4:
                     self.y = args[4]
