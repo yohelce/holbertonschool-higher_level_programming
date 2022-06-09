@@ -120,7 +120,7 @@ class Rectangle(Base):
         """Assigns an argument to each attribute"""
 
         if args is not None and len(args) > 0:
-            if type(args[0]) is not int and args[0] is not None
+            if type(args[0]) is not int and args[0] is not None:
                 raise TypeError("id must be an integer")
             for arg in range(len(args)):
                 if arg == 0:
