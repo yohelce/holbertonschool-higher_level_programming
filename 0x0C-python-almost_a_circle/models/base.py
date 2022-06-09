@@ -51,7 +51,7 @@ class Base:
         """Returns the list of the JSON string representation json_string"""
 
         if json_string is None or json_string == "":
-            return "[]"
+            return []
         if not isinstance(json_string, str):
             raise TypeError("json_string must be a string")
         return json.loads(json_string)
