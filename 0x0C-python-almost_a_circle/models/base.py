@@ -55,3 +55,11 @@ class Base:
         if not isinstance(json_string, str):
             raise TypeError("json_string must be a string")
         return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """Returns an instance with all attributes already set"""
+
+        dummy = cls(**dictionary)
+        dummy.update(**dictionary)
+        return dummy
