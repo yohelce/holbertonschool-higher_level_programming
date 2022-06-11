@@ -3,6 +3,7 @@
 
 
 import json
+import csv
 from os.path import exists
 
 
@@ -78,3 +79,44 @@ class Base:
                     new_list.append(cls.create(**d))
                 return new_list
         return new_list
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Serializes list_objs in CSV format
+        and saves it to a file.
+        Args:
+            - list_objs: list of instances
+        """
+
+        filename = cls.__name__ + ".csv"
+        with open(filename, mode="w", newline="") as f:
+            if list_objs is None or list_objs == []:
+                f.write("[]")
+            else:
+                list_objs = [n.to_dictionary() for n in list_objs]
+                if cls.__name__ == "Rectangle":
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                if cls.__name__ == "square":
+                    fieldnames = ["id", "size", "x", "y"]
+                spamwriter = csv.DictWriter(f, fieldnames=fieldnames)
+                spamwriter.writeheader()
+                spamwriter.writerows(list_objs)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Deserializes CSV format from a file.
+        Returns: list of instances
+        """
+
+        filename = cls.__name__ + ".csv"
+        if exists(filename):
+            with open(filename, mode="r", newline="") as f:
+                if cls.__name__ == "Rectangle":
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                if cls.__name__ == "square":
+                    fieldnames = ["id", "size", "x", "y"]
+                list_dicts = csv.DictReader(f, fieldnames=fieldnames)
+                list_dicts = [dict([k, int(v)] for k, v in d.items()) for
+                              d in list_dicts]
+                return [cls.create(**d) for d in list_dicts]
+        return []
