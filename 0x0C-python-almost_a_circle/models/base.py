@@ -93,14 +93,13 @@ class Base:
             if list_objs is None or list_objs == []:
                 f.write("[]")
             else:
-                list_objs = [n.to_dictionary() for n in list_objs]
                 if cls.__name__ == "Rectangle":
                     fieldnames = ["id", "width", "height", "x", "y"]
-                if cls.__name__ == "square":
+                elif cls.__name__ == "square":
                     fieldnames = ["id", "size", "x", "y"]
                 spamwriter = csv.DictWriter(f, fieldnames=fieldnames)
-                spamwriter.writeheader()
-                spamwriter.writerows(list_objs)
+                for obj in list_objs:
+                    spamwriter.writerow(obj.to_dictionary())
 
     @classmethod
     def load_from_file_csv(cls):
@@ -109,14 +108,24 @@ class Base:
         """
 
         filename = cls.__name__ + ".csv"
-        if exists(filename):
+        result = []
+
+        if exists(filename) is True:
             with open(filename, mode="r", newline="") as f:
+                obj_list = csv.reader(f)
                 if cls.__name__ == "Rectangle":
                     fieldnames = ["id", "width", "height", "x", "y"]
-                if cls.__name__ == "square":
+                    for data in obj_list:
+                        new_dict = {}
+                        for k, v in zip(fieldnames, data):
+                            new_dict[k] = int(v)
+                        result.append(cls.create(**new_dict))
+                elif cls.__name__ == "square":
                     fieldnames = ["id", "size", "x", "y"]
-                list_dicts = csv.DictReader(f, fieldnames=fieldnames)
-                list_dicts = [dict([k, int(v)] for k, v in d.items()) for
-                              d in list_dicts]
-                return [cls.create(**d) for d in list_dicts]
-        return []
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                    for data in obj_list:
+                        new_dict = {}
+                        for k, v in zip(fieldnames, data):
+                            new_dict[k] = int(v)
+                        result.append(cls.create(**new_dict))
+        return result
