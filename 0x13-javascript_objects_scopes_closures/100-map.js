@@ -1,4 +1,4 @@
-#!/usr/local/bin/node
+#!/usr/bin/node
 const { list } = require('./100-data');
 
 const newArray = list.map((num, i) => num * i);
