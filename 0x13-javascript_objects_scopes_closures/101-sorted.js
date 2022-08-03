@@ -11,4 +11,4 @@ for (const elem of newArray) {
     newObj[elem[1]] = [elem[0]];
   }
 }
-console.log(newArray);
+console.log(newObj);
