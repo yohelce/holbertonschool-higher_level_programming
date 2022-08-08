@@ -15,3 +15,5 @@ if __name__ == "__main__":
     for row in query_rows:
         if row[1] == sys.argv[4]:
             print(row)
+    cur.close()
+    db.close()
