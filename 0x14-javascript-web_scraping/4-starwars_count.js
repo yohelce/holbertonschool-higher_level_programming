@@ -15,5 +15,5 @@ axios.get(url)
     console.log(count);
   })
   .catch(function (err) {
-    console.log(err.response.status);
+    console.log(err);
   });
