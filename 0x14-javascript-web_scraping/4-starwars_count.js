@@ -7,7 +7,7 @@ axios.get(url)
     let count = 0;
     for (const film of response.data.results) {
       for (const people of film.characters) {
-        if (people === 'https://swapi-api.hbtn.io/api/people/18/') {
+        if (people.includes('18')) {
           count += 1;
         }
       }
@@ -15,5 +15,5 @@ axios.get(url)
     console.log(count);
   })
   .catch(function (err) {
-    console.log(err);
+    console.log(err.response.status);
   });
